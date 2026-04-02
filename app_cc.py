@@ -105,24 +105,18 @@ st.markdown("""
 
 ## --- FUNCIONES ---
 def devolver_elemento_excel(elem):
-    # Esto busca la carpeta donde está ejecutándose el script en el servidor
     base_dir = os.path.dirname(os.path.abspath(__file__))
     ruta_excel = os.path.join(base_dir, 'frases_app_cc.xlsx')
     
     try:
-        # Cargamos el Excel
         df = pd.read_excel(ruta_excel, sheet_name=elem)
         fila = df.sample().iloc[0]
         
-
+        # Solo limpiamos espacios, no añadimos rutas raras
         columnas_multimedia = ['Imagen', 'Respuestas imagen', 'Respuestas audio', 'Audio1', 'Audio2']
-        
         for col in columnas_multimedia:
             if col in fila and pd.notna(fila[col]):
-                # Si el nombre del archivo no tiene ya la ruta completa...
-                nombre_archivo = str(fila[col]).strip()
-                # Construimos la ruta absoluta dentro del servidor
-                fila[col] = os.path.join(base_dir, nombre_archivo)
+                fila[col] = str(fila[col]).strip()
                 
         return fila
     except Exception as e:

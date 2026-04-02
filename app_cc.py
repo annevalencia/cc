@@ -104,6 +104,33 @@ st.markdown("""
 
 
 ## --- FUNCIONES ---
+
+# PAra el ordenador
+# def devolver_elemento_excel(elem):
+#     base_dir = os.path.dirname(os.path.abspath(__file__))
+#     ruta_excel = os.path.join(base_dir, 'frases_app_cc.xlsx')
+    
+#     try:
+#         df = pd.read_excel(ruta_excel, sheet_name=elem)
+#         fila = df.sample().iloc[0]
+        
+#         # Esta parte limpia los nombres de archivo que vienen del Excel
+#         columnas_multimedia = ['Imagen', 'Respuestas imagen', 'Respuestas audio', 'Audio1', 'Audio2']
+#         for col in columnas_multimedia:
+#             if col in fila and pd.notna(fila[col]):
+#                 # Cogemos solo el nombre del archivo, por si se te ha olvidado 
+#                 # alguna ruta de Windows en el Excel, esto intenta limpiar:
+#                 nombre_limpio = str(fila[col]).split('\\')[-1].split('/')[-1].strip()
+                
+#                 # Ahora le decimos a Streamlit que el archivo está en la misma carpeta que el código
+#                 fila[col] = os.path.join(base_dir, nombre_limpio)
+                
+#         return fila
+#     except Exception as e:
+#         st.error(f"Error al leer la hoja {elem}: {e}")
+#         return None
+
+# PAra GitHub
 def devolver_elemento_excel(elem):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     ruta_excel = os.path.join(base_dir, 'frases_app_cc.xlsx')
@@ -112,11 +139,15 @@ def devolver_elemento_excel(elem):
         df = pd.read_excel(ruta_excel, sheet_name=elem)
         fila = df.sample().iloc[0]
         
-        # Solo limpiamos espacios, no añadimos rutas raras
         columnas_multimedia = ['Imagen', 'Respuestas imagen', 'Respuestas audio', 'Audio1', 'Audio2']
         for col in columnas_multimedia:
             if col in fila and pd.notna(fila[col]):
-                fila[col] = str(fila[col]).strip()
+                # 1. Convertimos a string y quitamos espacios
+                ruta_sucia = str(fila[col]).strip()
+                # 2. TRUCO: Cambiamos las barras \ de Windows por / de Linux
+                ruta_linux = ruta_sucia.replace('\\', '/')
+                # 3. Creamos la ruta completa
+                fila[col] = os.path.join(base_dir, ruta_linux)
                 
         return fila
     except Exception as e:

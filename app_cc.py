@@ -38,7 +38,7 @@ saludos_franjas = {
     ],
     "madrugada": [
         "¿Pero qué haces despierta a estas horas? 🦉 ¡A dormir!",
-        "Cris... son horas de soñar, no de scrollear. 😴",
+        "Cris... son horas de estar durmiendo, no con las pantallitas... 😴",
         "Iscariot!!! A estas horas Jesucristo ya estaba más que traicionado, ¡tira a dormir pero ya!"
     ]
 }

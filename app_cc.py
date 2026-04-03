@@ -90,6 +90,13 @@ st.markdown("""
         box-shadow: 4px 4px 10px rgba(0,0,0,0.05);
     }
     
+    .stCaption {
+        color: #7D5D5D !important;
+        font-size: 0.9rem !important;
+        font-weight: 500 !important;
+        margin-bottom: 10px !important;
+    }
+    
     /* Títulos en rosa viejo */
     h1, h2, h3 {
         color: #B57171 !important;

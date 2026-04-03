@@ -65,40 +65,54 @@ st.set_page_config(page_title="Felicidades Cris!", page_icon="🎁")
 # --- ESTILO PERSONALIZADO (Rose Gold & Modern) ---
 st.markdown("""
     <style>
-    /* Fondo rosa muy, muy sutil (casi blanco) */
+    /* 1. Fondo rosa muy, muy sutil (casi blanco) */
     .stApp {
         background-color: #FFF9FA;
     }
     
-    /* Botones con estilo "Pill" (pastilla) modernos */
+    /* 2. FORZAR COLOR DE TEXTO NORMAL (Párrafos, markdown, write, captions) */
+    /* Usamos un rosa viejo oscuro para que sea legible pero estético */
+    .stApp p, .stApp span, .stApp label, .stMarkdown, .stCaption {
+        color: #7D5D5D !important; /* Un rosa viejo oscuro muy legible */
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* 3. Títulos principales en rosa viejo (Un poco más claro que el texto normal) */
+    h1, h2, h3, h4, h5, h6 {
+        color: #B57171 !important;
+        font-family: 'Trebuchet MS', sans-serif;
+        font-weight: 600;
+    }
+    
+    /* 4. Botones modernos estilo "Pill" (pastilla) */
     .stButton>button {
         border-radius: 25px;
         border: 1px solid #F4C2C2;
         background-color: white;
-        color: #D47D7D;
-        font-weight: 500;
-        padding: 10px 20px;
+        color: #D47D7D; /* Rosa medio para el texto del botón */
+        font-weight: 600;
+        padding: 10px 25px;
         transition: all 0.3s ease;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.02);
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.03);
     }
     
     .stButton>button:hover {
-        background-color: #F4C2C2;
+        background-color: #F4C2C2; /* Rosa pastel al pasar el ratón */
         color: white;
         border: 1px solid #F4C2C2;
         transform: translateY(-2px);
-        box-shadow: 4px 4px 10px rgba(0,0,0,0.05);
+        box-shadow: 4px 4px 10px rgba(0,0,0,0.08);
     }
     
-    /* Títulos en rosa viejo */
-    h1, h2, h3 {
-        color: #B57171 !important;
-        font-family: 'Segoe UI', sans-serif;
-    }
-
+    /* 5. Ocultar elementos de la interfaz de Streamlit */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+    
+    /* 6. Estilo extra para el spinner de carga */
+    .stSpinner > div > div {
+        border-top-color: #D47D7D !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 

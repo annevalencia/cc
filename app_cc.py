@@ -90,13 +90,6 @@ st.markdown("""
         box-shadow: 4px 4px 10px rgba(0,0,0,0.05);
     }
     
-    .stCaption {
-        color: #7D5D5D;
-        font-size: 0.9rem;
-        font-weight: 500;
-        margin-bottom: 10px;
-    }
-    
     /* Títulos en rosa viejo */
     h1, h2, h3 {
         color: #B57171 !important;
@@ -227,7 +220,9 @@ if opcion:
             ## REFLEXIONES
             if opcion in ['Reflexiones', 'Frases']:
                 
-                st.caption('De vez en cuando, también una se puede poner un poco sentimental...')
+                # st.caption('De vez en cuando, también una se puede poner un poco sentimental...')
+                caption_ref = 'De vez en cuando, también una se puede poner un poco sentimental...'
+                st.markdown(f"<p style='color: #B57171; font-size: 0.9rem; font-style: italic; opacity: 0.8;'>{caption_ref}</p>", unsafe_allow_html=True)
                 
                 texto = resultado[opcion]
                 # Paleta Zen-Elegante (Integrada con el Rose Gold)
@@ -252,7 +247,9 @@ if opcion:
                 
             ## CHISTES    
             elif opcion == 'Chistes':
-                st.caption('Creo que ya te puedes imaginar el nivel de esta sección... por eso no me preocupo 😜')
+                # st.caption('Creo que ya te puedes imaginar el nivel de esta sección... por eso no me preocupo 😜')
+                caption_ch = 'Creo que ya te puedes imaginar el nivel de esta sección... por eso no me preocupo 😜'
+                st.markdown(f"<p style='color: #B57171; font-size: 0.9rem; font-style: italic; opacity: 0.8;'>{caption_ch}</p>", unsafe_allow_html=True)
                 
                 # Parte 1: Pregunta
                 st.markdown(f"### {resultado['Chistes']}")
@@ -278,7 +275,10 @@ if opcion:
     
             ## FUNFACTS
             elif opcion == 'Funfacts':
-                st.caption('¡Nunca a la cama te irás sin saber una cosa más! De nada💋')
+                # st.caption('¡Nunca a la cama te irás sin saber una cosa más! De nada💋')
+                caption_ff = '¡Nunca a la cama te irás sin saber una cosa más! De nada💋'
+                st.markdown(f"<p style='color: #B57171; font-size: 0.9rem; font-style: italic; opacity: 0.8;'>{caption_ff}</p>", unsafe_allow_html=True)
+                
                 # st.info(resultado['Funfacts'])
                 # if pd.notna(resultado.get('Imagen')):
                 #     st.image(resultado['Imagen'], use_container_width=True)
@@ -311,7 +311,10 @@ if opcion:
                     
             ## HIGHLITHS
             elif opcion == 'Highlights':
-                st.caption('Un repasito a cosicas que hemos compartido ;)')
+                # st.caption('Un repasito a cosicas que hemos compartido ;)')
+                caption_hl = 'Un repasito a cosicas que hemos compartido ;)'
+                st.markdown(f"<p style='color: #B57171; font-size: 0.9rem; font-style: italic; opacity: 0.8;'>{caption_hl}</p>", unsafe_allow_html=True)
+                
                 st.markdown(f"#### {resultado['Titulo']}")
                 st.write(f"{resultado['Descripcion']}")
                 st.divider() 
@@ -335,4 +338,5 @@ if opcion:
 
 # Un pie de página pequeñito y cariñoso
 st.markdown("---")
-st.caption("Hecho con ❤️ , de Anne para Cris :)")
+# st.caption("Hecho con ❤️ , de Anne para Cris :)")
+st.markdown(f"<p style='color: #B57171; font-size: 0.9rem; font-style: italic; opacity: 0.8;'>Hecho con ❤️ , de Anne para Cris :)</p>", unsafe_allow_html=True)

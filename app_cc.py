@@ -23,7 +23,7 @@ hora_actual = datetime.now(timezone).hour
 saludos_franjas = {
     "mañana": [
         "¿Ya estás angustiada de par de mañana o esperamos al segundo Colacao? Relaxxxx☕️",
-        "¡Venga! A la piscina, que las jubiladas no se vigilan solas. 🏊‍♀️ No les dejes ahogarse porfi :)",
+        "¡Venga! A la piscina, que las jubiladas no se vigilan solas. 🏊‍♀️ No las dejes ahogarse porfi :)",
         'Egun on! ¿Cómo te has levantado hoy? ¿Rollo telenovela? Creo que son cosas que nunca voy a entender... porque marica se nace'  
     ],
     "tarde": [
@@ -42,6 +42,15 @@ saludos_franjas = {
         "Iscariot!!! A estas horas Jesucristo ya estaba más que traicionado, ¡tira a dormir pero ya!"
     ]
 }
+
+saludos_cumple = {
+    "mañana": ['Zorionaaaaaak!🎉 Ya estás un día más cerca de jubilarte, y un año más cerca de los viajes del inserso, yujuuuuu :)'
+               ],
+    'tarde': ['¿Ya estás celebrando? Cuidadico no se te vayan las cañas de las manos que no queremos resaquita mañana ;)'],
+    'noche': ['¡A dormir la mona!💤 Mañana te despertarás con un año más y la misma poca vergüenza. Un besico de buenas noches😘'],
+    'madrugada': ["Pero bueno, ¿de juerga a estas horas con tu nueva edad? Mañana el Ibuprofeno va a ser tu mejor amigo..."]
+    }
+
 
 # Lógica de selección de franja
 if 'saludo_fijo' not in st.session_state:
@@ -187,7 +196,7 @@ st.markdown(f"""
 # Un separador con estrellas pequeño y discreto
 st.markdown("<div style='text-align: center; color: #F4C2C2; margin-bottom: 20px;'>✦ ✦ ✦</div>", unsafe_allow_html=True)
 
-st.write("#### ¿De qué tenemos ganas hoy?")
+st.write("#### ¿Qué te apetece?")
 
 
 

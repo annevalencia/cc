@@ -18,7 +18,8 @@ import streamlit as st
 
 # Configuración de los saludos por franjas
 timezone = pytz.timezone('Europe/Madrid')
-hora_actual = datetime.now(timezone).hour
+ahora = datetime.now(timezone)
+hora_actual = ahora.hour
 es_cumple = (ahora.day == 3 and ahora.month == 4) # Detecta el 3 de abril
 
 saludos_franjas = {

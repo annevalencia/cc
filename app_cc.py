@@ -91,10 +91,10 @@ st.markdown("""
     }
     
     .stCaption {
-        color: #7D5D5D !important;
-        font-size: 0.9rem !important;
-        font-weight: 500 !important;
-        margin-bottom: 10px !important;
+        color: #7D5D5D;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 10px;
     }
     
     /* Títulos en rosa viejo */

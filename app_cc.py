@@ -19,6 +19,7 @@ import streamlit as st
 # Configuración de los saludos por franjas
 timezone = pytz.timezone('Europe/Madrid')
 hora_actual = datetime.now(timezone).hour
+es_cumple = (ahora.day == 3 and ahora.month == 4) # Detecta el 3 de abril
 
 saludos_franjas = {
     "mañana": [
@@ -63,8 +64,11 @@ if 'saludo_fijo' not in st.session_state:
     else:
         franja = "madrugada"
     
-    # Guardamos un saludo aleatorio en la "memoria" de la app
-    st.session_state.saludo_fijo = random.choice(saludos_franjas[franja])
+    # Elegir el diccionario (Cumple o Normal)
+    diccionario_a_usar = saludos_cumple if es_cumple else saludos_franjas
+    
+    # Guardar el saludo aleatorio
+    st.session_state.saludo_fijo = random.choice(diccionario_a_usar[franja])
 
 
 
